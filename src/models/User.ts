@@ -1,12 +1,15 @@
 import { Eventing } from './Eventing';
-interface UserProps {
+import { Sync } from './Sync';
+export interface UserProps {
 	id?: number;
 	name?: string;
 	age?: number;
 }
+const rootUrl = 'http://locslhost:3000/users';
 
 export class User {
 	public events: Eventing = new Eventing();
+	public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
 	constructor(private data: UserProps) {}
 
 	get(propsName: string): number | string {
