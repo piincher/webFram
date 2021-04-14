@@ -1,6 +1,6 @@
 import axios, { AxiosPromise, AxiosResponse } from 'axios';
 interface HasAndId {
-	id: number;
+	id?: number;
 }
 export class Sync<T extends HasAndId> {
 	constructor(public rootUrl: string) {}
