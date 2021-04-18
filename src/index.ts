@@ -5,4 +5,5 @@ console.log(user.get('name'));
 user.on('change', () => {
 	console.log('user was changed');
 });
-user.trigger('change');
+
+user.set({ name: 'piincher' });
