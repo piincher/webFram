@@ -42,4 +42,9 @@ export class User {
 		const response: AxiosResponse = await this.sync.fetch(id);
 		this.set(response.data);
 	}
+
+	async save(): Promise<void> {
+		const { data: AxiosResponse } = await this.sync.save(this.attributes.getAll());
+		this.trigger('save');
+	}
 }
