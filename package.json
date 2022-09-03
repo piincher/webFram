@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "parcel index.html"
+    "test": "parcel index.html",
+    "server": "json-server --watch db.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
+    "json-server": "^0.17.0",
     "parcel": "^1.12.3"
   },
   "devDependencies": {
