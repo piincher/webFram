@@ -1,8 +1,9 @@
 import { User } from "./modals/User";
 
-const user = new User({ name: "piincher", age: 20 });
+const user = new User({ id: 3, name: "new user" });
 
-user.event.on("change", () => {
-  console.log("chiane");
+user.on("save", () => {
+  console.log(user);
 });
-user.event.trigger("change");
+
+user.save();
