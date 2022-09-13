@@ -1,9 +1,9 @@
 import { User } from "./modals/User";
 
-const user = new User({ id: 3, name: "new user" });
+const user = User.buildBuild({ id: 2 });
 
 user.on("save", () => {
   console.log(user);
 });
 
-user.save();
+user.fetch();

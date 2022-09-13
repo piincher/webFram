@@ -5,7 +5,7 @@ import { UserProps } from "./User";
 interface HasId {
   id?: number;
 }
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
   constructor(public url: string) {}
 
   fetch(id: number): AxiosPromise {
