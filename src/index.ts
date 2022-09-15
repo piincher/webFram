@@ -1,9 +1,10 @@
-import { User } from "./modals/User";
+import { User, UserProps } from "./modals/User";
+import { Collection } from "./modals/Collection";
+import axios, { AxiosResponse } from "axios";
 
-const user = User.buildBuild({ id: 2 });
+const collection = User.buildUserCollection();
 
-user.on("save", () => {
-  console.log(user);
+collection.on("change", () => {
+  console.log(collection);
 });
-
-user.fetch();
+collection.fetch();

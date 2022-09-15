@@ -1,3 +1,4 @@
+import { Collection } from "./Collection";
 import { ApiSync } from "./ApiSync";
 import { Eventing } from "./Eventing";
 import { Attributes } from "./Attributes";
@@ -8,7 +9,7 @@ export interface UserProps {
   name?: string;
   age?: number;
 }
-const rootUrl = "http://localhost:3000";
+const rootUrl = "http://localhost:3000/users";
 
 export class User extends Model<UserProps> {
   static buildBuild(attrs: UserProps): User {
@@ -16,6 +17,12 @@ export class User extends Model<UserProps> {
       new Attributes<UserProps>(attrs),
       new Eventing(),
       new ApiSync<UserProps>(rootUrl)
+    );
+  }
+
+  static buildUserCollection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(rootUrl, (json: UserProps) =>
+      User.buildBuild(json)
     );
   }
 }
